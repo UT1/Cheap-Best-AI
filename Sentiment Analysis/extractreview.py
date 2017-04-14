@@ -1,12 +1,12 @@
 import csv
 
 list = []
-with open('Amazon_Unlocked_Mobile.csv') as csvfile:
+with open('Amazon_Unlocked_Mobile1.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         list.append(row['Reviews'])
 
-f = open('review.txt','w')
+f = open('new2.txt','w')
 
 for l in list:
-    f.write('"'+l+'"')
+    f.write('"'+l+'"'+'\n')
