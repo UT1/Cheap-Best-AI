@@ -10,6 +10,7 @@ import javafx.geometry.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 public class Query extends Application
 {
 String query="";
@@ -18,8 +19,10 @@ public static void main(String [] args)throws IOException
 {
   launch (args);
 }
+
 public void start(Stage ms)throws Exception
 {
+PrintWriter pw1=new PrintWriter("Brand.txt");
 
   ms.setTitle("Query Segmentation");
 BorderPane root=new BorderPane();
@@ -61,42 +64,48 @@ VBox flow=new VBox(5);
      VBox submenu=new VBox(2);
 
      flow.getChildren().addAll(s,cb1,cb2,cb3,cb4,cb6,cb7,cb8,cb10,cb11,cb12,cb13,cb14,cb16,cb17,cb18,cb19,cb21,cb22,cb23,cb24);
-     root.setCenter(flow);
+     ScrollPane scrollPane = new ScrollPane(flow);
+     scrollPane.setFitToHeight(true);
+     root.setPadding(new Insets(15));
+     root.setCenter(scrollPane);
+
      cb1.setOnAction(
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Samsung ";
+     	{query+="Samsung*";
+
+
       CheckBox cb1_1=new CheckBox("Front camera");
       cb1_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Front Camera ";}});
+        {subquery+="FRONT CAMERA*";}});
       CheckBox cb1_2=new CheckBox("Android");
       cb1_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android ";}});
+        {subquery+="ANDROID*";}});
       CheckBox cb1_3=new CheckBox("Slider");
       cb1_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Slider ";}});
+        {subquery+="SLIDER*";}});
       CheckBox cb1_4=new CheckBox("QWERTY Keyboard");
       cb1_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="QWERTY Keyboard ";}});
+        {subquery+="QWERTY KEYBOARD*";}});
       CheckBox cb1_5=new CheckBox("TouchScreen");
       cb1_5.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Touch Screen";}});
+        {subquery+="TOUCH SCREEN*";}});
       submenu.getChildren().addAll(cb1_1,cb1_2,cb1_3,cb1_4,cb1_5);
       }
      });
@@ -105,37 +114,37 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Nokia ";
+     	{query+="Nokia*";
       CheckBox cb2_1=new CheckBox("GSM");
       cb2_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="GSM ";}});
+        {subquery+="GSM*";}});
       CheckBox cb2_2=new CheckBox("Wifi");
       cb2_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Wi-Fi ";}});
+        {subquery+="Wi-Fi*";}});
       CheckBox cb2_3=new CheckBox("Bluetooth");
       cb2_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Bluetooth ";}});
+        {subquery+="Bluetooth*";}});
       CheckBox cb2_4=new CheckBox("MicroSD");
       cb2_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="MicroSD ";}});
+        {subquery+="microSD*";}});
       CheckBox cb2_5=new CheckBox("Radio");
       cb2_5.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Radio ";}});
+        {subquery+="Radio*";}});
       submenu.getChildren().addAll(cb2_1,cb2_2,cb2_3,cb2_4,cb2_5);
       }
      });
@@ -144,37 +153,37 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Jethro ";
+     	{query+="Jethro*";
       CheckBox cb3_1=new CheckBox("Kids Cellphone");
       cb3_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Kids Cellphone ";}});
-      CheckBox cb3_3=new CheckBox("Large LCD");
+        {subquery+="Kids Cell Phone*";}});
+      CheckBox cb3_3=new CheckBox("SOS Button");
       cb3_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Large LCD ";}});
+        {subquery+="SOS Button*";}});
       CheckBox cb3_2=new CheckBox("GSM");
       cb3_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="GSM ";}});
+        {subquery+="GSM*";}});
       CheckBox cb3_4=new CheckBox("Large Keypad");
       cb3_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Large Keypad ";}});
+        {subquery+="Large Keypad*";}});
       CheckBox cb3_5=new CheckBox("Quadband");
       cb3_5.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Quadband ";}});
+        {subquery+="Quad-band*";}});
       submenu.getChildren().addAll(cb3_1,cb3_2,cb3_3,cb3_4,cb3_5);
       }
      });
@@ -183,32 +192,37 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="E Passion ";
+     	{query+="e passion*";
       CheckBox cb4_1=new CheckBox("Phablet");
       cb4_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Phablet ";}});
+        {subquery+="Phablet*";}});
       CheckBox cb4_2=new CheckBox("WCDMA");
       cb4_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="WCDMA ";}});
+        {subquery+="Wcdma*";}});
       CheckBox cb4_3=new CheckBox("Dual Sim");
       cb4_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Dual Sim ";}});
+        {subquery+="Dual Sim*";}});
       CheckBox cb4_4=new CheckBox("QuadCore");
       cb4_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Quad Core ";}});
+        {subquery+="Quad Core*";}});
       CheckBox cb4_5=new CheckBox("3G");
+      cb4_5.setOnAction(
+        new EventHandler<ActionEvent>()
+        {
+        public void handle(ActionEvent e)
+        {subquery+="3g*";}});
       submenu.getChildren().addAll(cb4_1,cb4_2,cb4_3,cb4_4,cb4_5);
       }
       });
@@ -217,25 +231,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Cedar Tree ";
+     	{query+="Cedar Tree* ";
       CheckBox cb6_1=new CheckBox("Micro Android");
       cb6_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Micro Android ";}});
+        {subquery+="Micro Android*";}});
       CheckBox cb6_2=new CheckBox("Wifi");
       cb6_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Wi-Fi ";}});
+        {subquery+="WiFi*";}});
       CheckBox cb6_3=new CheckBox("Bluetooth");
       cb6_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Bluetooth ";}});
+        {subquery+="Bluetooth*";}});
       submenu.getChildren().addAll(cb6_1,cb6_2,cb6_3);
       }
      });
@@ -244,25 +258,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Indigi ";
+     	{query+="Indigi*";
       CheckBox cb7_1=new CheckBox("6 Inch");
       cb7_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="6 inch ";}});
+        {subquery+="6\"*";}});
       CheckBox cb7_2=new CheckBox("QHD");
       cb7_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="QHD ";}});
+        {subquery+="QHD*";}});
       CheckBox cb7_3=new CheckBox("Android 5.1");
       cb7_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android 5.1 ";}});
+        {subquery+="Android 5.1*";}});
       submenu.getChildren().addAll(cb7_1,cb7_2,cb7_3);
       }
      });
@@ -271,13 +285,13 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Phone Baby ";
+     	{query+="Phone Baby*";
       CheckBox cb8_1=new CheckBox("Kid's Phone");
       cb8_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Kid's Phone ";}});
+        {subquery+="Mini6 Small*";}});
       submenu.getChildren().addAll(cb8_1);
       }
 
@@ -289,31 +303,31 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Huawei ";
+     	{query+="Huawei*";
       CheckBox cb10_1=new CheckBox("Ram 3GB");
       cb10_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Ram 3GB ";}});
+        {subquery+="3GB*";}});
       CheckBox cb10_2=new CheckBox("16GB hard disk");
       cb10_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="16 GB hard disk ";}});
+        {subquery+="16GB*";}});
       CheckBox cb10_3=new CheckBox("5.5 inch screen");
       cb10_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5.5 inch screen ";}});
+        {subquery+="5.5 inch*";}});
       CheckBox cb10_4=new CheckBox("Android 4.4");
       cb10_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android 4.4 ";}});
+        {subquery+="Android 4.4*";}});
       submenu.getChildren().addAll(cb10_1,cb10_2,cb10_3,cb10_4);
       }
       });
@@ -322,25 +336,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Juning ";
+     	{query+="JUNING*";
       CheckBox cb11_1=new CheckBox("5.5 inch");
       cb11_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5.5 Inch ";}});
+        {subquery+="5\"*";}});
       CheckBox cb11_2=new CheckBox("Android 5.1");
       cb11_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android 5.1 ";}});
+        {subquery+="Android 5.1*";}});
       CheckBox cb11_3=new CheckBox("5 MP camera");
       cb11_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5 MP Camera ";}});
+        {subquery+="5.0MP*";}});
       submenu.getChildren().addAll(cb11_1,cb11_2,cb11_3);
         }
      });
@@ -349,25 +363,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Elephone ";
+     	{query+="Elephone*";
       CheckBox cb12_3=new CheckBox("Quad Core");
       cb12_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Quad Core ";}});
+        {subquery+="Quad Core*";}});
       CheckBox cb12_2=new CheckBox("2 GB Ram");
       cb12_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="2 GB Ram ";}});
+        {subquery+="2 GB*";}});
       CheckBox cb12_1=new CheckBox("16 GB Hard Disk");
       cb12_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="16 GB Hard Disk ";}});
+        {subquery+="16GB*";}});
       submenu.getChildren().addAll(cb12_1,cb12_2,cb12_3);
       }
      });
@@ -376,25 +390,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Plum ";
+     	{query+="Plum*";
       CheckBox cb13_1=new CheckBox("5.5 Inch HD");
       cb13_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5.5 Inch HD ";}});
+        {subquery+="5.5\"*";}});
       CheckBox cb13_2=new CheckBox("GSM");
       cb13_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="GSM ";}});
+        {subquery+="GSM*";}});
       CheckBox cb13_3=new CheckBox("4G");
       cb13_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="4G ";}});
+        {subquery+="4G*";}});
       submenu.getChildren().addAll(cb13_1,cb13_2,cb13_3);
       }
      });
@@ -403,26 +417,26 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Lenovo ";
+     	{query+="Lenovo*";
 
       CheckBox cb14_1=new CheckBox("3G");
       cb14_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="3G ";}});
+        {subquery+="3G*";}});
       CheckBox cb14_2=new CheckBox("4GB Ram");
       cb14_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="4GB Ram ";}});
+        {subquery+="4gb*";}});
       CheckBox cb14_3=new CheckBox("Android 4.2");
       cb14_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android 4.2 ";}});
+        {subquery+="Android 4.2*";}});
       submenu.getChildren().addAll(cb14_1,cb14_2,cb14_3);
       }
      });
@@ -433,19 +447,19 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Ulephone ";
+     	{query+="Ulephone*";
       CheckBox cb16_1=new CheckBox("XPRESS Music");
       cb16_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="XPRESS Music ";}});
+        {subquery+="XpressMusic*";}});
       CheckBox cb16_2=new CheckBox("Games");
       cb16_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Games ";}});
+        {subquery+="Games*";}});
       submenu.getChildren().addAll(cb16_1,cb16_2);
       }
      });
@@ -454,19 +468,19 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Jiuha ";
+     	{query+="Jiuhe*";
       CheckBox cb17_1=new CheckBox("6 Inch");
       cb17_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="6 Inch ";}});
-      CheckBox cb17_2=new CheckBox("512 Mb Ram");
+        {subquery+="6inch*";}});
+      CheckBox cb17_2=new CheckBox("512 Mb Rom");
       cb17_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="512 Mb Ram ";}});
+        {subquery+="512MB ROM*";}});
       submenu.getChildren().addAll(cb17_1,cb17_2);
       }
      });
@@ -475,25 +489,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Acer ";
+     	{query+="Acer*";
       CheckBox cb18_1=new CheckBox("Dual Sim");
       cb18_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Dual Sim ";}});
+        {subquery+="Dual Sim*";}});
       CheckBox cb18_2=new CheckBox("Android KitKat");
       cb18_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Android Kitkat ";}});
+        {subquery+="Android Kitkat*";}});
       CheckBox cb18_3=new CheckBox("5 Inch");
       cb18_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5 Inch ";}});
+        {subquery+="5\"*";}});
       submenu.getChildren().addAll(cb18_1,cb18_2,cb18_3);
       }
      });
@@ -502,19 +516,19 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="AKUA ";
+     	{query+="AKUA*";
       CheckBox cb19_1=new CheckBox("4 Inch");
       cb19_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="4 Inch ";}});
+        {subquery+="4.0\"*";}});
       CheckBox cb19_2=new CheckBox("GSM");
       cb19_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="GSM ";}});
+        {subquery+="GSM*";}});
       submenu.getChildren().addAll(cb19_1,cb19_2);
       }
      });
@@ -523,25 +537,25 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Odysseus ";
+     	{query+="Odysseus*";
       CheckBox cb21_1=new CheckBox("5 Inch");
       cb21_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="5 Inch ";}});
+        {subquery+="5.0\"*";}});
       CheckBox cb21_2=new CheckBox("Quad Core");
       cb21_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Front Camera ";}});
+        {subquery+="Quad Core*";}});
       CheckBox cb21_3=new CheckBox("13 MP Camera");
       cb21_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="13 MP Camera ";}});
+        {subquery+="13.0MP*";}});
       submenu.getChildren().addAll(cb21_1,cb21_2,cb21_3);
       }
      });
@@ -550,19 +564,19 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Blackberry";
+     	{query+="Blackberry*";
       CheckBox cb22_1=new CheckBox("7.1 Blackberry OS");
       cb22_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="7.1 Blackberry OS";}});
+        {subquery+="7.1 Blackberry OS*";}});
       CheckBox cb22_2=new CheckBox("2 MP Camera");
       cb22_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="2 MP Camera ";}});
+        {subquery+="2MP Camera*";}});
       submenu.getChildren().addAll(cb22_1,cb22_2);
 
       }
@@ -572,19 +586,19 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Star ";
+     	{query+="Star*";
       CheckBox cb23_1=new CheckBox("IPS Touch");
       cb23_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="IPS Touch ";}});
+        {subquery+="IPS Touch*";}});
       CheckBox cb23_2=new CheckBox("GPS");
       cb23_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="GPS ";}});
+        {subquery+="Gps*";}});
       submenu.getChildren().addAll(cb23_1,cb23_2);
       }
      });
@@ -593,72 +607,79 @@ VBox flow=new VBox(5);
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
-     	{query+="Apple ";
+     	{query+="Apple*";
       CheckBox cb23_1=new CheckBox("IPhone 5C");
       cb23_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 5C ";}});
+        {subquery+="Iphone 5C*";}});
       CheckBox cb23_2=new CheckBox("IPhone 5S");
       cb23_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 5s ";}});
+        {subquery+="iPhone 5s*";}});
       CheckBox cb23_3=new CheckBox("IPad Pro");
       cb23_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Ipad Pro ";}});
+        {subquery+="iPad Pro*";}});
       CheckBox cb23_4=new CheckBox("Iphone 2G");
       cb23_4.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 2G ";}});
+        {subquery+="iPhone 2G*";}});
       CheckBox cb23_5=new CheckBox("Iphone 3G");
       cb23_5.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 3G";}});
+        {subquery+="iPhone 3G*";}});
       CheckBox cb23_6=new CheckBox("Iphone 3GS");
       cb23_6.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 3GS ";}});
+        {subquery+="iPhone 3GS*";}});
       CheckBox cb23_7=new CheckBox("Iphone 4");
       cb23_7.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 4 ";}});
+        {subquery+="iPhone 4*";}});
       CheckBox cb23_8=new CheckBox("Iphone 6");
       cb23_8.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 6 ";}});
+        {subquery+="iPhone 6*";}});
       submenu.getChildren().addAll(cb23_1,cb23_2,cb23_3,cb23_4,cb23_5,cb23_6,cb23_7,cb23_8);
       }
      });
 
      TextField t=new TextField("#####");
+     TextField t2=new TextField("#####");
      HBox hb=new HBox(5);
      Button pr=new Button("GO");
      Button can=new Button("Cancel");
-     Button pre=new Button("Next");
+     Button pre=new Button("Features");
+     Label tl=new Label("Companies selected:");
+     Label t1l =new Label("Features:");
      pre.setOnAction(
      	new EventHandler<ActionEvent>()
      	{
      	public void handle(ActionEvent e)
      	{
-        t.setText("The companies selected are:"+query);
+        t.setText(query);
         t.setPrefWidth(800);
-        root.setCenter(submenu);
+        ScrollPane sP = new ScrollPane(submenu);
+        sP.setFitToHeight(true);
+        root.setPadding(new Insets(15));
+        root.setCenter(sP);
+
       }
      });
      pr.setOnAction(
@@ -666,16 +687,22 @@ VBox flow=new VBox(5);
      	{
      	public void handle(ActionEvent e)
      	{
-        t.setText("Final Query: "+query+"Other features"+subquery);
+        t.setText(query);
+        t2.setText(subquery);
         t.setPrefWidth(800);
-        root.setCenter(submenu);
+          t2.setPrefWidth(800);
+          VBox fi=new VBox();
+            Text to=new Text("********Thank you for your query********");
+            fi.getChildren().addAll(to,tl,t,t1l,t2);
+        root.setCenter(fi);
       }
      });
-     hb.getChildren().addAll(pr,pre,can,t);
+     hb.getChildren().addAll(pr,pre);
      root.setBottom(hb);
 
   Scene sc=new Scene(root,400,800);
   ms.setScene(sc);
   ms.show();
+
 }
 }
