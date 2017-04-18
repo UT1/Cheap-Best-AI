@@ -608,55 +608,25 @@ VBox flow=new VBox(5);
      	{
      	public void handle(ActionEvent e)
      	{query+="Apple*";
-      CheckBox cb23_1=new CheckBox("IPhone 5C");
+      CheckBox cb23_1=new CheckBox("16GB");
       cb23_1.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="Iphone 5C*";}});
-      CheckBox cb23_2=new CheckBox("IPhone 5S");
+        {subquery+="16GB*";}});
+      CheckBox cb23_2=new CheckBox("3G");
       cb23_2.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="iPhone 5s*";}});
-      CheckBox cb23_3=new CheckBox("IPad Pro");
+        {subquery+="3G*";}});
+      CheckBox cb23_3=new CheckBox("3G");
       cb23_3.setOnAction(
         new EventHandler<ActionEvent>()
         {
         public void handle(ActionEvent e)
-        {subquery+="iPad Pro*";}});
-      CheckBox cb23_4=new CheckBox("Iphone 2G");
-      cb23_4.setOnAction(
-        new EventHandler<ActionEvent>()
-        {
-        public void handle(ActionEvent e)
-        {subquery+="iPhone 2G*";}});
-      CheckBox cb23_5=new CheckBox("Iphone 3G");
-      cb23_5.setOnAction(
-        new EventHandler<ActionEvent>()
-        {
-        public void handle(ActionEvent e)
-        {subquery+="iPhone 3G*";}});
-      CheckBox cb23_6=new CheckBox("Iphone 3GS");
-      cb23_6.setOnAction(
-        new EventHandler<ActionEvent>()
-        {
-        public void handle(ActionEvent e)
-        {subquery+="iPhone 3GS*";}});
-      CheckBox cb23_7=new CheckBox("Iphone 4");
-      cb23_7.setOnAction(
-        new EventHandler<ActionEvent>()
-        {
-        public void handle(ActionEvent e)
-        {subquery+="iPhone 4*";}});
-      CheckBox cb23_8=new CheckBox("Iphone 6");
-      cb23_8.setOnAction(
-        new EventHandler<ActionEvent>()
-        {
-        public void handle(ActionEvent e)
-        {subquery+="iPhone 6*";}});
-      submenu.getChildren().addAll(cb23_1,cb23_2,cb23_3,cb23_4,cb23_5,cb23_6,cb23_7,cb23_8);
+        {subquery+="3G*";}});
+      submenu.getChildren().addAll(cb23_1,cb23_2,cb23_3);
       }
      });
 
